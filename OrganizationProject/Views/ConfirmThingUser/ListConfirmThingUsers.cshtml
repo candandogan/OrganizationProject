@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ConfirmThingUser>
+
+@{
+    ViewData["Title"] = "Sonuç";
+}
+
+
+
+<h1>Katılımcılar</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConfirmThing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConfirmThing.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vote)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

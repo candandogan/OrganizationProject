@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Candan Organizasyon</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CANDAN ORGANİZASYON</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Organizasyonlar</a>
+                        </li>
+
+
+                        @*<li class="nav-item">
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Logout">Hoşgeldiniz! @User.Identity.Name (Çıkış yap)</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Giriş Yap (Kullanıcı)</a>
+                            }
+
+                        </li>*@
+
+
+                        <li class="nav-item">
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Logout">Hoşgeldiniz! @User.Identity.Name (Çıkış yap)</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Login">Giriş Yap (Admin)</a>
+                            }
+
+                        </li>
+
+
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            @*<li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">
+                        YÖNETİCİ İŞLEMLERİ
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a asp-action="Brands" asp-controller="Home" class="list-group-item list-group-item-action">Profilimi Düzenle</a></li>
+
+                        <li><a asp-action="Index" asp-controller="ConfirmThing" class="list-group-item list-group-item-action">Organizasyon İşlemleri</a></li>
+
+                    </ul>
+                </div>
+
+
+            </li>*@
+
+                            
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Yönetici Listesi</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-action="Index" asp-controller="ConfirmThing">Organizasyon İşlemleri</a>
+                            </li>
+
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Candan Organizasyon 
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿
+@model ConfirmThing
+
+@{
+    ViewData["Title"] = "Organizasyon Oluştur";
+}
+
+<h1>YENİ ORGANİZASYON OLUŞTUR</h1>
+
+<h4>ORGANİZASYON</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Detail" class="control-label"></label>
+                <input asp-for="Detail" class="form-control" />
+                <span asp-validation-for="Detail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumOfConfReq" class="control-label"></label>
+                <input asp-for="NumOfConfReq" class="form-control" />
+                <span asp-validation-for="NumOfConfReq" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Deadline" class="control-label"></label>
+                <input asp-for="Deadline" class="form-control" />
+                <span asp-validation-for="Deadline" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Oluştur" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">ANASAYFAYA GERİ DÖN</a>
+</div>

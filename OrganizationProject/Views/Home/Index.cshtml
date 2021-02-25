@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ConfirmThing>
+
+@{
+    ViewData["Title"] = "Organizasyonlar";
+}
+
+
+<h1>Organizasyonlar</h1>
+<td>
+    <a asp-action="Create" asp-controller="User" class="btn btn-primary">Organizasyonlarımıza katılmak için tıkla</a>
+
+
+</td>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Detail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumOfConfReq)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Deadline)
+            </th>
+
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (DateTime.Compare(item.Deadline, DateTime.Now)>=0)
+            {
+
+
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Detail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumOfConfReq)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deadline)
+                </td>
+
+
+
+
+            </tr>
+            }
+        }
+    </tbody>
+</table>

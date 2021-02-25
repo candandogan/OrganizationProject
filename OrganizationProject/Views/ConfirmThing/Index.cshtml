@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ConfirmThing>
+
+@{
+    ViewData["Title"] = "Organizasyon İşlemleri";
+}
+
+
+<h1>Organizasyon İşlemleri</h1>
+
+<p>
+    <a asp-action="Create" asp-controller="ConfirmThing" class="btn btn-success">Yeni Organizasyon Oluştur</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Detail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumOfConfReq)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deadline)
+            </th>
+
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        { 
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Detail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumOfConfReq)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deadline)
+                </td>
+
+
+
+                <td>
+
+                    <a asp-action="Edit" asp-controller="ConfirmThing" asp-route-id="@item.ConfirmThingId" class="btn btn-success">Güncelle</a>
+                    <a asp-action="Delete" asp-controller="ConfirmThing" asp-route-id="@item.ConfirmThingId" class="btn btn-danger" data-id="@item.ConfirmThingId">Sil</a>
+                    <a asp-action="ListUsers" asp-controller="ConfirmThing" asp-route-id="@item.ConfirmThingId" class="btn btn-primary">Katılımcıları Listele</a>
+                    <a asp-action="Index" asp-controller="ConfirmThingUser" asp-route-id="@item.ConfirmThingId" class="btn btn-primary">Sonuçları Listele     </a>
+                    <a asp-action="DonePdf" asp-controller="ConfirmThingUser"  asp-route-id="@item.ConfirmThingId" class="btn btn-success">Listeyi İndir</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

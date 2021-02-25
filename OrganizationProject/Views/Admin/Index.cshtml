@@ -1,0 +1,53 @@
+﻿@model IEnumerable<OrganizationProject.Models.Admin>
+
+@{
+    ViewData["Title"] = "Admin Listesi";
+}
+
+<h1>Adminler</h1>
+
+<p>
+    <a asp-action="Create" asp-controller="Admin" class="btn btn-primary">Admin Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                <a asp-action="Edit"  asp-controller="Admin" asp-route-id="@item.AdminId" class="btn btn-primary">Güncelle</a> |
+               
+                <a asp-action="Delete" asp-controller="Admin" asp-route-id="@item.AdminId" class="btn btn-danger">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

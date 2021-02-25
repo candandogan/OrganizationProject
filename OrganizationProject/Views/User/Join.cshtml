@@ -1,0 +1,53 @@
+﻿@model ConfirmThingUser
+
+@{
+    ViewData["Title"] = "Etkinliğe Katıl";
+}
+
+<h1>Organizasyona Katıl</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Join">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <select asp-for="UserId" class="form-control" asp-items="@(IEnumerable<SelectListItem>)ViewBag.Users"></select>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmThingId" class="control-label"></label>
+                <select asp-for="ConfirmThingId" class="form-control" asp-items="@(IEnumerable<SelectListItem>)ViewBag.ConfirmThings"></select>
+
+            </div>
+            <div class="form-group">
+                <label class="form-check-label"> Katılım Durumu:
+                    <select asp-for="@Model.Vote">
+                        <option value="True">Evet</option>
+                        <option value="False">Hayır</option>
+
+                    </select>
+                    <span asp-validation-for="@Model.Vote"></span>
+                </label>
+            </div>
+
+
+
+            <div class="form-group">
+                <label asp-for="Note" class="control-label"></label>
+                <input asp-for="Note" class="form-control" />
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Katıl" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">Organizasyon listesine geri dön</a>
+</div>
